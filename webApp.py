@@ -3,12 +3,12 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/index.html')
 def index():
     con = sqlite3.connect('childcare_data.db')
     con.row_factory = sqlite3.Row
     cur = con.cursor()
     cur.execute("select * from location_data where GOV_REGION='London'")
-    rows = cur.fetchall()
+    rows = cur.fetchmany(100)
     con.close()
-    return render_template('/view/templates/index.html', rows=rows)
+    return render_template('index.html', rows=rows)

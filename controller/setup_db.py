@@ -12,7 +12,7 @@ con.execute('DROP TABLE IF EXISTS location_data')
 con.execute('CREATE TABLE location_data (PROVISION_TYPE TEXT,REG_DATE DATE,REG_STATUS TEXT,GOV_REGION TEXT,LOCAL_AUTHORITY TEXT,CONSTITUENCY TEXT,SECTOR TEXT,ORG_OWNER TEXT,EVENT_NUM INTEGER)')
 con.execute('CREATE TABLE inspection_data (EVENT_TYPE TEXT,INSPECT_DATE DATE,PUBLISH_DATE DATE,EVENT_NUM INTEGER,OVERALL_EXP TEXT,HELP_CARE_EFF TEXT,ADMIN_EFF TEXT)')
 
-with open('childcare_data.csv', newline=' ') as data:
+with open('childcare_data.csv', newline='') as data:
     reader = csv.reader(data, delimiter=";")
     next(reader) # skip the header line
     errCount=0

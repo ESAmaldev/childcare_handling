@@ -9,8 +9,8 @@ cur = con.cursor()
 con.execute('DROP TABLE IF EXISTS inspection_data')
 con.execute('DROP TABLE IF EXISTS location_data')
 
-con.execute('CREATE TABLE location_data (PROVISION_TYPE TEXT,REG_DATE DATE,REG_STATUS TEXT,GOV_REGION TEXT,LOCAL_AUTHORITY TEXT,CONSTITUENCY TEXT,SECTOR TEXT,ORG_OWNER TEXT,EVENT_NUM INTEGER)')
-con.execute('CREATE TABLE inspection_data (EVENT_TYPE TEXT,INSPECT_DATE DATE,PUBLISH_DATE DATE,EVENT_NUM INTEGER,OVERALL_EXP TEXT,HELP_CARE_EFF TEXT,ADMIN_EFF TEXT)')
+con.execute('CREATE TABLE location_data (PROVISION_TYPE TEXT,REG_DATE DATE,REG_STATUS TEXT,GOV_REGION TEXT,LOCAL_AUTHORITY TEXT,CONSTITUENCY TEXT,SECTOR TEXT,ORG_OWNER TEXT,EVENT_NUM INTEGER PRIMARY KEY)')
+con.execute('CREATE TABLE inspection_data (EVENT_TYPE TEXT,INSPECT_DATE DATE,PUBLISH_DATE DATE,EVENT_NUM INTEGER PRIMARY KEY,OVERALL_EXP TEXT,HELP_CARE_EFF TEXT,ADMIN_EFF TEXT)')
 
 with open('childcare_data.csv',encoding='cp1252') as care_data:
     reader = csv.reader(care_data, delimiter=",")
@@ -21,7 +21,6 @@ with open('childcare_data.csv',encoding='cp1252') as care_data:
         try:
 
             PROVISION_TYPE=row[0]
-            print(row[1])
             REG_DATE= datetime.strptime(row[1],"%d/%m/%Y")
             REG_STATUS=row[2]
             GOV_REGION=row[3]
@@ -30,11 +29,8 @@ with open('childcare_data.csv',encoding='cp1252') as care_data:
             SECTOR=row[6]
             ORG_OWNER=row[7]
             EVENT_TYPE=row[8]
-            print(row[9])
             INSPECT_DATE=datetime.strptime(row[9],"%d/%m/%Y")
-            print(row[10])
             PUBLISH_DATE=datetime.strptime(row[10],"%d/%m/%Y")
-            print(row[11])
             EVENT_NUM=int(row[11])
             OVERALL_EXP=row[12]
             HELP_CARE_EFF=row[13]
