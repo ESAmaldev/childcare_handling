@@ -28,7 +28,6 @@ pygame==2.0.0
 Pygments==2.2.0
 PyGObject==3.27.0
 pyparsing==2.4.7
-python-apt==1.6.5+ubuntu0.3
 pyxdg==0.25
 PyYAML==3.12
 requests==2.18.4
