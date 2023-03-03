@@ -1,12 +1,39 @@
 <form action="/success.html" id="form1">
   <label for="pro_type">Provision Type:</label>
-  <input type="text" id="pro_type" name="pro_type"><br><br>
+  	<select id="pro_type" name="pro_type">
+    <option value="adopt_support">Adoption Support Agency</option>
+    <option value="boarding_school">Boarding School</option>
+    <option value="childrens_home">Children's Home</option>
+    <option value="college">Further Education College with Residential Accommodation</option>
+    <option value="indie_foster">Independent Fostering Agency</option>
+    <option value="res_fam_centre">Residential Family Centre</option>
+    <option value="res_hol_sch">Residential Holiday Scheme for Disabled Children</option>
+    <option value="res_spe_school">Residential Special School</option>
+    <option value="res_spe_school_c_h">Residential special school (registered as a children's home)</option>
+    <option value="train_centre">Secure Training Centre</option>
+    <option value="sec_child_home">Secure children's home</option>
+    <option value="Vol_adopt">Voluntary Adoption Agency</option>    
+  </select><br><br>
   <label for="reg_date">Registration date:</label>
   <input type="date" id="reg_date" name="reg_date"><br><br>
   <label for="reg_status">Registration Status:</label>
-  <input type="text" id="reg_status" name="reg_status"><br><br>
+  	<select id="reg_status" name="reg_status">
+    <option value="active">Active</option>
+    <option value="resigned">Resigned</option>
+    <option value="cancelled">Cancelled</option>
+  	</select><br><br>
   <label for="gov_region">Govt Region:</label>
-  <input type="text" id="gov_region" name="gov_region"><br><br>
+  <select id="gov_region" name="gov_region">
+    <option value="east_mid">East Midlands</option>
+    <option value="east_eng">East of England</option>
+    <option value="london">London</option>
+    <option value="north_east">North East</option>
+    <option value="north_west">North West</option>
+    <option value="south_east">South East</option>
+    <option value="south_west">South West</option>
+    <option value="west_mid">West Midlands</option>
+    <option value="york_humb">Yorkshire and The Humber</option>
+  </select><br><br>
   <label for="loc_authority">Local Authority:</label>
   <input type="text" id="loc_authority" name="loc_authority"><br><br>
   <label for="sector">Sector:</label>
@@ -14,7 +41,12 @@
   <label for="org_owner">Organisation owner:</label>
   <input type="text" id="org_owner" name="org_owner"><br><br>
   <label for="event_type">Event type:</label>
-  <input type="text" id="event_type" name="event_type"><br><br>
+  	<select id="event_type" name="event_type">
+    <option value="ful_insp">Full inspection</option>
+    <option value="interim_insp">Interim inspection</option>
+    <option value="monit_insp">Monitoring inspection</option>
+    <option value="emerg_insp">SC Emergency inspection</option>
+  	</select><br><br>
   <label for="insp_date">Inspection date:</label>
   <input type="date" id="insp_date" name="insp_date"><br><br>
   <label for="publ_date">Published date:</label>
@@ -22,10 +54,28 @@
   <label for="event_num">Event number:</label>
   <input type="number" id="event_num" name="event_num"><br><br>
   <label for="ovrall_exp">Overall experiance:</label>
-  <input type="text" id="ovrall_exp" name="ovrall_exp"><br><br>
+  	<select id="ovrall_exp" name="ovrall_exp">
+    <option value="null_exp"></option>
+    <option value="good_exp">Good</option>
+    <option value="outstanding_exp">Outstanding</option>
+    <option value="req_imp_exp">Requires improvement</option>
+    <option value="inadequate_exp">Inadequate</option>
+  	</select><br><br>
   <label for="help_eff">Help & Care Efficiency:</label>
-  <input type="text" id="help_eff" name="help_eff"><br><br>
-  <label for="ovrall_eff">Overall experiance:</label>
-  <input type="text" id="ovrall_eff" name="ovrall_eff"><br><br>
+  	<select id="help_eff" name="help_eff">
+    <option value="null_help"></option>
+    <option value="good_help">Good</option>
+    <option value="outstanding_help">Outstanding</option>
+    <option value="req_imp_help">Requires improvement</option>
+    <option value="inadequate_help">Inadequate</option>
+  	</select><br><br>
+  <label for="ovrall_eff">Admin Efficiency:</label>
+  	<select id="ovrall_eff" name="ovrall_eff">
+    <option value="null_eff"></option>
+    <option value="good_eff">Good</option>
+    <option value="outstanding_eff">Outstanding</option>
+    <option value="req_imp_eff">Requires improvement</option>
+    <option value="inadequate_eff">Inadequate</option>
+  	</select><br><br>
   <input type="submit" value="Submit">
 </form>
