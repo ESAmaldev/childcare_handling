@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template , request
 import sqlite3
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def index():
 def form():
     return render_template('form.html')
 
-@app.route('/success.html')
+@app.route('/success.html', methods=["POST"])
 def success():
     pro_type=request.args.get("pro_type")
     if(pro_type=="adopt_support"): pro_type="Adoption Support Agency"
@@ -56,6 +56,8 @@ def success():
     sector=request.args.get("sector")
 
     org_owner=request.args.get("org_owner")
+
+    constituency=request.args.get("constituency")
 
     event_type=request.args.get("event_type")
     if(event_type=="ful_insp"): event_type="Full inspection"
@@ -99,4 +101,5 @@ def success():
     cur.execute('INSERT INTO inspection_data VALUES (?,?,?,?,?,?,?)', (event_type ,insp_date ,publ_date ,event_num ,ovrall_exp ,help_eff ,ovrall_eff))
     con.commit()
     con.close()
+    return render_template('success.html')
     
