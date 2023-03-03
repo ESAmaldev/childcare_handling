@@ -5,13 +5,34 @@ app = Flask(__name__)
 
 @app.route('/index.html')
 def index():
+    return render_template('index.html')
+
+@app.route('/location.html')
+def location():
+
+    gov_region=request.args.get("gov_region")
+    if(gov_region=="east_mid"): gov_region="East Midlands"
+    elif(gov_region=="east_eng"): gov_region="East of England"
+    elif(gov_region=="london"): gov_region="London"
+    elif(gov_region=="north_east"): gov_region="North East"
+    elif(gov_region=="north_west"): gov_region="North West"
+    elif(gov_region=="south_east"): gov_region="South East"
+    elif(gov_region=="south_west"): gov_region="South West"
+    elif(gov_region=="west_mid"): gov_region="West Midlands"
+    elif(gov_region=="york_humb"): gov_region="Yorkshire and The Humber"
+
     con = sqlite3.connect('childcare_data.db')
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute("select * from location_data where GOV_REGION='London'")
+    query1="select * from location_data where GOV_REGION LIKE '%"
+    query2=query1+gov_region
+    q3="%'"
+    query4=query2+q3
+    print("This is for a test ",query4)
+    cur.execute(query4)
     rows = cur.fetchmany(100)
     con.close()
-    return render_template('index.html', rows=rows)
+    return render_template('location.html', rows=rows)
 
 @app.route('/form.html')
 def form():
