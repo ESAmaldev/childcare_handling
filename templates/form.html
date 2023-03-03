@@ -1,5 +1,7 @@
 <form action="/success.html" id="form1">
-  <label for="pro_type">Provision Type:</label>
+<table style="width:100%">
+  <th>
+    <label for="pro_type">Provision Type:</label>
   	<select id="pro_type" name="pro_type">
     <option value="adopt_support">Adoption Support Agency</option>
     <option value="boarding_school">Boarding School</option>
@@ -38,8 +40,12 @@
   <input type="text" id="loc_authority" name="loc_authority"><br><br>
   <label for="sector">Sector:</label>
   <input type="text" id="sector" name="sector"><br><br>
+  <label for="constituency">Constituency:</label>
+  <input type="text" id="constituency" name="constituency"><br><br>
   <label for="org_owner">Organisation owner:</label>
   <input type="text" id="org_owner" name="org_owner"><br><br>
+  </th>
+  <th>
   <label for="event_type">Event type:</label>
   	<select id="event_type" name="event_type">
     <option value="ful_insp">Full inspection</option>
@@ -77,5 +83,7 @@
     <option value="req_imp_eff">Requires improvement</option>
     <option value="inadequate_eff">Inadequate</option>
   	</select><br><br>
-  <input type="submit" value="Submit">
+    <input type="submit" value="Submit">
+</th>
+</table>
 </form>
