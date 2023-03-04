@@ -35,3 +35,6 @@ Yorkshire and The Humber
 <form method="POST">
         <button type="submit" name="button" value="{{ button_text }}">{{ button_text }}</button>
     </form>
+
+ query = "INSERT INTO users (username, password) VALUES (?, ?)"
+    cursor.execute(query, (username, password))

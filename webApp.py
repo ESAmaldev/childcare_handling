@@ -75,15 +75,23 @@ def success():
 
     sector=request.args.get("sector")
 
+    constituency=request.args.get("constituency")
+
     org_owner=request.args.get("org_owner")
 
-    constituency=request.args.get("constituency")
+    
 
     event_type=request.args.get("event_type")
     if(event_type=="ful_insp"): event_type="Full inspection"
     elif(event_type=="interim_insp"): event_type="Interim inspection"
     elif(event_type=="monit_insp"): event_type="Monitoring inspection"
     elif(event_type=="emerg_insp"): event_type="SC Emergency inspection"
+
+    insp_date=request.args.get("insp_date")
+
+    publ_date=request.args.get("publ_date")
+
+    event_num=request.args.get("event_num")
 
     ovrall_exp=request.args.get("ovrall_exp")
     if(ovrall_exp=="null_exp"): ovrall_exp=""
@@ -106,20 +114,15 @@ def success():
     elif(ovrall_eff=="req_imp_eff"): ovrall_eff="Requires improvement"
     elif(ovrall_eff=="inadequate_eff"): ovrall_eff="Inadequate"
 
-    insp_date=request.args.get("insp_date")
-
-    publ_date=request.args.get("publ_date")
-
-    event_num=request.args.get("event_num")
-
-
+    
     con = sqlite3.connect('childcare_data.db')
-    con.row_factory = sqlite3.Row
     cur = con.cursor()
     try:
-        cur.execute('INSERT INTO location_data VALUES (?,?,?,?,?,?,?,?,?)', (pro_type ,reg_date ,reg_status ,gov_region ,loc_authority ,constituency ,sector ,org_owner ,event_num))
+        query="INSERT INTO location_data (PROVISION_TYPE ,REG_DATE ,REG_STATUS ,GOV_REGION ,LOCAL_AUTHORITY ,CONSTITUENCY ,SECTOR ,ORG_OWNER ,EVENT_NUM) VALUES (?,?,?,?,?,?,?,?,?)"
+        cur.execute(query,(pro_type ,reg_date ,reg_status ,gov_region ,loc_authority ,constituency ,sector ,org_owner ,event_num))
         con.commit()
-        cur.execute('INSERT INTO inspection_data VALUES (?,?,?,?,?,?,?)', (event_type ,insp_date ,publ_date ,event_num ,ovrall_exp ,help_eff ,ovrall_eff))
+        query="INSERT INTO inspection_data (EVENT_TYPE ,INSPECT_DATE ,PUBLISH_DATE ,EVENT_NUM ,OVERALL_EXP ,HELP_CARE_EFF ,ADMIN_EFF) VALUES (?,?,?,?,?,?,?)"
+        cur.execute(query,(event_type ,insp_date ,publ_date ,event_num ,ovrall_exp ,help_eff ,ovrall_eff))
         con.commit()
         return render_template('success.html')
     except Exception as e:
