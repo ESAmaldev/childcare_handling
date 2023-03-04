@@ -139,7 +139,7 @@ def inspection():
     con = sqlite3.connect('childcare_data.db')
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    query1="select * from inspection_data where event_num LIKE '%"
+    query1="SELECT ins.EVENT_TYPE,ins.INSPECT_DATE,ins.PUBLISH_DATE,ins.EVENT_NUM,ins.OVERALL_EXP,ins.HELP_CARE_EFF,ins.ADMIN_EFF,loc.PROVISION_TYPE,loc.ORG_OWNER FROM inspection_data AS ins INNER JOIN location_data AS loc ON ins.EVENT_NUM=loc.EVENT_NUM AND ins.EVENT_NUM LIKE '%"
     query2=query1+event_num
     q3="%'"
     query4=query2+q3

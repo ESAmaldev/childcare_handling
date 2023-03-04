@@ -1,27 +1,30 @@
 <div class="topnav">
   <a href="/index.html">Home</a>
 </div> 
-<h2>Location data:</h2>
-<table style="width:100%">
+{% for row in rows %}
+<h2>Inspection data for : {{row[3]}}</h2>
+<table style="width:100%" border="1">
   <tr>
     <th>Event type</th>
     <th>Inspection date</th>
     <th>Published date</th>
-    <th>Event number</th>
     <th>Overall experiance</th>
     <th>Help & Care Efficiency</th>
     <th>Admin Efficiency</th>
+    <th>Provision Type</th>
+    <th>Organisation Owner</th>
   </tr>
   
-  {% for row in rows %}
+  
         <tr>
             <td>{{row[0]}}</td>
             <td>{{row[1]}}</td>
             <td>{{row[2]}}</td>
-            <td>{{row[3]}}</td>
             <td>{{row[4]}}</td>
             <td>{{row[5]}}</td>
             <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
         </tr>
    
     {% endfor %}
