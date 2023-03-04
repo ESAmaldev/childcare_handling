@@ -1,0 +1,24 @@
+* 0e7eb9b : Render
+* 41f6da4 : Read.md
+* 5b1fafb : Final changes
+* 0999c61 : More changes
+*   502c4ae : Merge branch 'main' of https://github.com/ESAmaldev/childcare_handling into main
+|\  
+| * 315b737 : Update requirements.txt
+| * 01cccc4 : Update requirements.txt
+| * 6882a42 : Update requirements.txt
+| * af4d6b3 : Update requirements.txt
+| * 596c8c9 : Update requirements.txt
+* | e7d2ef0 : New functions
+* | 8ca8ecc : Edits
+|/  
+* 332bdcd : Edits
+* d31e357 : Edits
+* 7bcf879 : Final changes
+* c7e8132 : Post method added
+* 6f1c93b : Added new methods
+* 822b3dd : Updated form
+* 95d3890 : Added form
+* ae90d4c : Add new feature
+* 7ff439d : Add new feature
+* 8b1f5cd : intial commit

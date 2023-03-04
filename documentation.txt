@@ -1,0 +1,35 @@
+Web Project in Codio- Documentation
+
+This is a simple web application that displays the welfare data collected from child care centres across England during 2018-19 period.
+
+The link to access the application is : https://child-welfare-data-from-england.onrender.com/index.html
+
+                       Tables 
+                      /           \
+                     /             \   
+          location_data          inspection_data
+(Has details about location)       (Has details about inspection report)
+
+Basic Flow 
+                      index.html
+                     /           \
+                    /             \
+          location.html         form.html
+(Show data from a region)        (Add new data)
+(Click on an event number)
+          |
+          |
+          |
+    inspection.html
+(Shows data from a specific inspection)
+
+Data Upload
+ To upload new data , place csv file in home directory,
+name it childcare_data.csv and Run setup_db.py to
+upload data into the database.
+
+This web application was developed by using flask framework on python.
+
+
+Amaldev E Sudhakaran
+StudentID: 52214741
