@@ -20,4 +20,6 @@ command to start the server ------------> python3 -m flask run -host 0.0.0.0
 The /index.html to open the home page where users will have option to select a region and 
 view data from that region. One the right there is an option for users to enter new data. 
 On top of the page there is a home button which will allow users to redirect to home page.
-Click on the inspection number in location data to view the inspection data.
+Click on the inspection number in location data to view the inspection data. To upload new 
+data , place csv file in home directory, name it childcare_data.csv and Run setup_db.py to
+upload data into the database.
