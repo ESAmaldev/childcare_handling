@@ -26,11 +26,10 @@ def location():
     cur = con.cursor()
     query1="select * from location_data where GOV_REGION LIKE '%"
     query2=query1+gov_region
-    q3="%'"
+    q3="%'ORDER BY REG_DATE DESC"
     query4=query2+q3
-    print("This is for a test ",query4)
     cur.execute(query4)
-    rows = cur.fetchmany(100)
+    rows = cur.fetchall()
     con.close()
     return render_template('location.html', rows=rows)
 
@@ -117,10 +116,32 @@ def success():
     con = sqlite3.connect('childcare_data.db')
     con.row_factory = sqlite3.Row
     cur = con.cursor()
-    cur.execute('INSERT INTO location_data VALUES (?,?,?,?,?,?,?,?,?)', (pro_type ,reg_date ,reg_status ,gov_region ,loc_authority ,constituency ,sector ,org_owner ,event_num))
-    con.commit()
-    cur.execute('INSERT INTO inspection_data VALUES (?,?,?,?,?,?,?)', (event_type ,insp_date ,publ_date ,event_num ,ovrall_exp ,help_eff ,ovrall_eff))
-    con.commit()
-    con.close()
-    return render_template('success.html')
+    try:
+        cur.execute('INSERT INTO location_data VALUES (?,?,?,?,?,?,?,?,?)', (pro_type ,reg_date ,reg_status ,gov_region ,loc_authority ,constituency ,sector ,org_owner ,event_num))
+        con.commit()
+        cur.execute('INSERT INTO inspection_data VALUES (?,?,?,?,?,?,?)', (event_type ,insp_date ,publ_date ,event_num ,ovrall_exp ,help_eff ,ovrall_eff))
+        con.commit()
+        return render_template('success.html')
+    except Exception as e:
+        print(f'Error adding data to the table: {e}')
+    finally:
+        con.close()
+    return render_template('failure.html')
     
+@app.route('/inspection.html', methods=['GET'])
+def inspection():
+
+    event_num=request.args.get("event_num")
+
+    con = sqlite3.connect('childcare_data.db')
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    query1="select * from inspection_data where event_num LIKE '%"
+    query2=query1+event_num
+    q3="%'"
+    query4=query2+q3
+    print("This is for a test ",query4)
+    cur.execute(query4)
+    rows = cur.fetchmany(1)
+    con.close()
+    return render_template('inspection.html', rows=rows)

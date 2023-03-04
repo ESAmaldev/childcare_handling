@@ -22,7 +22,11 @@
             <td>{{row[5]}}</td>
             <td>{{row[6]}}</td>
             <td>{{row[7]}}</td>
-            <td>{{row[8]}}</td>
+            <td>
+      <form action="/inspection.html" method="GET">
+      <button type="submit" name="event_num" value="{{row[8]}}" >{{row[8]}}</button>
+    </form>
+            </td>
         </tr>
    
     {% endfor %}

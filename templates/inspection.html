@@ -1,15 +1,13 @@
 <h2>Location data:</h2>
 <table style="width:100%">
   <tr>
-    <th>Provision Type</th>
-    <th>Registration Date</th>
-    <th>Registration Status</th>
-    <th>Govt Region</th>
-    <th>Local Authority</th>
-    <th>Constituency</th>
-    <th>Sector</th>
-    <th>Organisation Owner</th>
-    <th>Event Number</th>
+    <th>Event type</th>
+    <th>Inspection date</th>
+    <th>Published date</th>
+    <th>Event number</th>
+    <th>Overall experiance</th>
+    <th>Help & Care Efficiency</th>
+    <th>Admin Efficiency</th>
   </tr>
   
   {% for row in rows %}
@@ -21,8 +19,6 @@
             <td>{{row[4]}}</td>
             <td>{{row[5]}}</td>
             <td>{{row[6]}}</td>
-            <td>{{row[7]}}</td>
-            <td>{{row[8]}}</td>
         </tr>
    
     {% endfor %}
